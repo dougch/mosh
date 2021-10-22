@@ -122,11 +122,12 @@ namespace Network {
      *
      * As of July 2016, VPN traffic over Amtrak Acela wifi seems to be
      * dropped if tunnelled packets are 1320 bytes or larger.  Use a
-     * 1280-byte IPv4 MTU for now.
+     * 1280-byte IPv4 MTU for now. Reduced even further to 1250 over Cisco
+     * VPN.
      *
      * We may have to implement ICMP-less PMTUD (RFC 4821) eventually.
      */
-    static const int DEFAULT_IPV4_MTU = 1280;
+    static const int DEFAULT_IPV4_MTU = 1250;
     /* IPv6 MTU. Use the guaranteed minimum to avoid fragmentation. */
     static const int DEFAULT_IPV6_MTU = 1280;
 
