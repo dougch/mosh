@@ -34,6 +34,7 @@ Mosh is a remote terminal application that supports:
 %build
 # Use upstream's more aggressive hardening instead of Fedora's defaults
 export CFLAGS="-g -O2" CXXFLAGS="-g -O2"
+./autogen.sh
 %configure --enable-compile-warnings=error
 make %{?_smp_mflags}
 
