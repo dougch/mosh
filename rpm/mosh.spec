@@ -1,21 +1,22 @@
 Name:		mosh
-Version:	1.2.5
+Version:	1.3.2
 Release:	1%{?dist}
 Summary:	Mobile shell that supports roaming and intelligent local echo
 
 License:	GPLv3+
 Group:		Applications/Internet
 URL:		https://mosh.org/
-Source0:	https://github.com/downloads/keithw/mosh/mosh-%{version}.tar.gz
+%undefine       _disable_source_fetch
+Source0:	https://github.com/dougch/mosh/archive/refs/tags/%{version}.tar.gz
 
 BuildRequires:	protobuf-compiler
 BuildRequires:	protobuf-devel
 BuildRequires:	libutempter-devel
 BuildRequires:	zlib-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	openssl-devel
+BuildRequires:	openssl11-devel
 Requires:	openssh-clients
-Requires:	openssl
+Requires:	openssl11
 Requires:	perl-IO-Socket-IP
 
 %description
@@ -52,6 +53,11 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Oct 22 2021 Doug Chapman <dougch@amazon.com> - 1.3.2-1
+- Update to mosh 1.3.2
+- Lower MTU size 
+- Use OpenSSL 1.1
+
 * Sun Jul 12 2015 John Hood <cgull@glup.org> - 1.2.5-1
 - Update to mosh 1.2.5
 
